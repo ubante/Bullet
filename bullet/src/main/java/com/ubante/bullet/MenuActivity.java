@@ -1,9 +1,12 @@
 package com.ubante.bullet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class MenuActivity extends Activity {
 
@@ -32,5 +35,22 @@ public class MenuActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onDiagonal(View v) {
+        Toast.makeText(this,"Switching to Diagonal",Toast.LENGTH_SHORT).show();
+        Intent diagonalIntent = new Intent(this, DiagonalActivity.class);
+        startActivity(diagonalIntent);
+    }
+
+    public void onDrawing(View v) {
+        Toast.makeText(this,"Switching to Drawing",Toast.LENGTH_SHORT).show();
+        Intent drawingIntent = new Intent(this, DrawingActivity.class);
+        startActivity(drawingIntent);
+    }
+
+    public void onUnimplemented(View v) {
+        Toast.makeText(this,"This button is not yet implemented",Toast.LENGTH_LONG).show();
+    }
+
 
 }

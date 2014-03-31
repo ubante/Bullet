@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.ubante.bullet.DiagonalActivity"
+            android:label="@string/title_activity_diagonal" >
+        </activity>
+        <activity
+            android:name="com.ubante.bullet.DrawingActivity"
+            android:label="@string/title_activity_drawing" >
+        </activity>
     </application>
 
 </manifest>

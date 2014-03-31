@@ -3,6 +3,11 @@
 
     <string name="app_name">Bullet</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string><string name="tv_join">Join</string><string name="tv_diagonal">Diagonal</string><string name="tv_tbd">TBD</string>
+    <string name="action_settings">Settings</string>
+    <string name="tv_join">Join</string>
+    <string name="tv_diagonal">Diagonal</string>
+    <string name="tv_tbd">TBD</string>
+    <string name="title_activity_diagonal">DiagonalActivity</string>
+    <string name="title_activity_drawing">DrawingActivity</string><string name="tv_draw">Draw</string>
 
 </resources>
