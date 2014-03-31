@@ -21,6 +21,10 @@
             android:label="@string/title_activity_diagonal" >
         </activity>
         <activity
+            android:name="com.ubante.bullet.ShapeActivity"
+            android:label="@string/title_activity_drawing" >
+        </activity>
+        <activity
             android:name="com.ubante.bullet.DrawingActivity"
             android:label="@string/title_activity_drawing" >
         </activity>

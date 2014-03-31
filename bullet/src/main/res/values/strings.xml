@@ -8,6 +8,6 @@
     <string name="tv_diagonal">Diagonal</string>
     <string name="tv_tbd">TBD</string>
     <string name="title_activity_diagonal">DiagonalActivity</string>
-    <string name="title_activity_drawing">DrawingActivity</string><string name="tv_draw">Draw</string>
+    <string name="title_activity_drawing">DrawingActivity</string><string name="tv_draw">Draw</string><string name="tv_shape">Shapes</string><string name="btn_select">Select</string>
 
 </resources>

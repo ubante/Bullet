@@ -42,6 +42,12 @@ public class MenuActivity extends Activity {
         startActivity(diagonalIntent);
     }
 
+    public void onShape(View v) {
+        Toast.makeText(this,"Switching to Shapes",Toast.LENGTH_SHORT).show();
+        Intent shapeIntent = new Intent(this, ShapeActivity.class);
+        startActivity(shapeIntent);
+    }
+
     public void onDrawing(View v) {
         Toast.makeText(this,"Switching to Drawing",Toast.LENGTH_SHORT).show();
         Intent drawingIntent = new Intent(this, DrawingActivity.class);
@@ -49,7 +55,7 @@ public class MenuActivity extends Activity {
     }
 
     public void onUnimplemented(View v) {
-        Toast.makeText(this,"This button is not yet implemented",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"This button is not yet implemented",Toast.LENGTH_SHORT).show();
     }
 
 

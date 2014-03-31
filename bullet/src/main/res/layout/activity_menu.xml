@@ -46,11 +46,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/tv_draw"
+        android:text="@string/tv_shape"
         android:id="@+id/textView"
         android:background="#c9f"
         android:layout_margin="20dp"
-        android:onClick="onDrawing"
+        android:onClick="onShape"
         android:layout_row="1"
         android:layout_column="0" />
 
@@ -63,14 +63,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/tv_draw"
+        android:id="@+id/textView"
+        android:background="#df0"
+        android:layout_margin="20dp"
+        android:onClick="onDrawing"
+        android:layout_row="1"
+        android:layout_column="1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/tv_tbd"
         android:id="@+id/textView"
         android:background="#eee"
         android:layout_margin="20dp"
         android:onClick="onUnimplemented"
         android:layout_row="1"
-        android:layout_column="1" />
-
+        android:layout_column="2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,5 +94,29 @@
         android:onClick="onUnimplemented"
         android:layout_row="2"
         android:layout_column="0" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/tv_tbd"
+        android:id="@+id/textView"
+        android:background="#eee"
+        android:layout_margin="20dp"
+        android:onClick="onUnimplemented"
+        android:layout_row="2"
+        android:layout_column="1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/tv_tbd"
+        android:id="@+id/textView"
+        android:background="#eee"
+        android:layout_margin="20dp"
+        android:onClick="onUnimplemented"
+        android:layout_row="2"
+        android:layout_column="2" />
 
 </GridLayout>

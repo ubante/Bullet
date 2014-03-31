@@ -4,41 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 public class DrawingActivity extends Activity {
-    private Button btnSelect;
-    private ShapeSelectorView shapeSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawing);
-        shapeSelector = (ShapeSelectorView) findViewById(R.id.shapeSelector);
-        btnSelect = (Button) findViewById(R.id.btnSelect);
-        btnSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(DrawingActivity.this, "You selected: " +
-                        shapeSelector.getSelectedShape(), Toast.LENGTH_LONG).show();
-            }
-        });
     }
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_drawing);
-//        shapeSelector = (ShapeSelectorView) findViewById(R.id.shapeSelector);
-//        btnSelect = (Button) findViewById(R.id.btnSelect);
-//        btnSelect.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(DrawingActivity.this,"You selected: " +
-//                        shapeSelector.getSelectedShape(),Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 
 
     @Override
