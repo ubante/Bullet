@@ -15,6 +15,6 @@
     <string name="btn_select">Select</string>
     <string name="title_activity_countdown">CountdownActivity</string>
     <string name="btn_countdown">Countdown</string>
-    <string name="title_activity_scratch">ScratchActivity</string><string name="btn_scratch">Scratch</string><string name="tv_diagonal_results">Your score</string><string name="tv_diagonal_header">Draw a vertical line</string>
+    <string name="title_activity_scratch">ScratchActivity</string><string name="btn_scratch">Scratch</string><string name="tv_diagonal_results">Your score</string><string name="tv_diagonal_header">Draw a vertical line</string><string name="btn_score">Score Me</string>
 
 </resources>

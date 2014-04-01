@@ -22,7 +22,7 @@ public class DiagonalDrawingView extends View {
     // stores the point of motion down and motion up
     Point startPoint,endPoint;
 
-//    public Path getPath() { return path; }
+    public Path getPath() { return path; }
 
     public Point getStartPoint() { return startPoint; }
 
@@ -58,6 +58,7 @@ public class DiagonalDrawingView extends View {
         // Checks for the event that occurs
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                // XXX need to clear the screen here
                 path.moveTo(pointX, pointY);
                 startPoint = new Point(pointX,pointY);
                 return true;
@@ -74,4 +75,11 @@ public class DiagonalDrawingView extends View {
         return true;
     }
 
+    public float getSlope() {
+        float slope;
+
+        slope = (endPoint.getY()-startPoint.getY()) / (endPoint.getX()-startPoint.getX());
+
+        return slope * -1; // The y-axis is reversed
+    }
 }
