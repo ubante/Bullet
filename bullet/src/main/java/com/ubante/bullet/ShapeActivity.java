@@ -22,24 +22,10 @@ public class ShapeActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ShapeActivity.this, "You selected: " +
-                        shapeSelector.getSelectedShape(), Toast.LENGTH_LONG).show();
+                        shapeSelector.getSelectedShape(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_shape);
-//        shapeSelector = (ShapeSelectorView) findViewById(R.id.shapeSelector);
-//        btnSelect = (Button) findViewById(R.id.btnSelect);
-//        btnSelect.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(ShapeActivity.this,"You selected: " +
-//                        shapeSelector.getSelectedShape(),Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
