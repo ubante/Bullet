@@ -3,11 +3,18 @@
 
     <string name="app_name">Bullet</string>
     <string name="hello_world">Hello world!</string>
+    <string name="countdown">54321</string>
     <string name="action_settings">Settings</string>
-    <string name="tv_join">Join</string>
-    <string name="tv_diagonal">Diagonal</string>
-    <string name="tv_tbd">TBD</string>
+    <string name="btn_join">Join</string>
+    <string name="btn_diagonal">Diagonal</string>
+    <string name="btn_tbd">TBD</string>
     <string name="title_activity_diagonal">DiagonalActivity</string>
-    <string name="title_activity_drawing">DrawingActivity</string><string name="tv_draw">Draw</string><string name="tv_shape">Shapes</string><string name="btn_select">Select</string>
+    <string name="title_activity_drawing">DrawingActivity</string>
+    <string name="btn_draw">Draw</string>
+    <string name="btn_shape">Shapes</string>
+    <string name="btn_select">Select</string>
+    <string name="title_activity_countdown">CountdownActivity</string>
+    <string name="btn_countdown">Countdown</string>
+    <string name="title_activity_scratch">ScratchActivity</string><string name="btn_scratch">Scratch</string><string name="tv_diagonal_results">Your score</string><string name="tv_diagonal_header">Draw a vertical line</string>
 
 </resources>

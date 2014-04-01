@@ -9,8 +9,26 @@
     tools:context="com.ubante.bullet.DiagonalActivity">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="@string/tv_diagonal_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <com.ubante.bullet.DiagonalDrawingView
+        android:id="@+id/diagonalDrawingView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_diagonal_results"
+        android:id="@+id/textView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

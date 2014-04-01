@@ -54,6 +54,18 @@ public class MenuActivity extends Activity {
         startActivity(drawingIntent);
     }
 
+    public void onCountdown(View v) {
+        Toast.makeText(this,"Switching to Countdown",Toast.LENGTH_SHORT).show();
+        Intent countdownIntent = new Intent(this, CountdownActivity.class);
+        startActivity(countdownIntent);
+    }
+
+    public void onScratch(View v) {
+        Toast.makeText(this,"Switching to Scratch",Toast.LENGTH_SHORT).show();
+        Intent scratchIntent = new Intent(this, ScratchActivity.class);
+        startActivity(scratchIntent);
+    }
+
     public void onUnimplemented(View v) {
         Toast.makeText(this,"This button is not yet implemented",Toast.LENGTH_SHORT).show();
     }

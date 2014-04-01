@@ -10,17 +10,25 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * From http://guides.thecodepath.com/android/Basic-Painting-with-Views#creating-our-custom-view
+ * I tried to extend SimpleDrawingView but it's easier to make a new class.
  */
-public class SimpleDrawingView extends View {
+public class DiagonalDrawingView extends View {
     // setup initial color
     private final int paintColor = Color.BLACK;
     // defines paint and canvas
     private Paint drawPaint;
     // stores next circle
     private Path path = new Path();
+    // stores the point of motion down and motion up
+    Point startPoint,endPoint;
 
-    public SimpleDrawingView(Context context, AttributeSet attrs) {
+//    public Path getPath() { return path; }
+
+    public Point getStartPoint() { return startPoint; }
+
+    public Point getEndPoint() { return endPoint; }
+
+    public DiagonalDrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setFocusable(true);
         setFocusableInTouchMode(true);
@@ -51,10 +59,13 @@ public class SimpleDrawingView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(pointX, pointY);
+                startPoint = new Point(pointX,pointY);
                 return true;
             case MotionEvent.ACTION_MOVE:
                 path.lineTo(pointX, pointY);
                 break;
+            case MotionEvent.ACTION_UP:
+                endPoint = new Point(pointX,pointY);
             default:
                 return false;
         }
@@ -62,4 +73,5 @@ public class SimpleDrawingView extends View {
         postInvalidate();
         return true;
     }
+
 }

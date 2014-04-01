@@ -28,6 +28,14 @@
             android:name="com.ubante.bullet.DrawingActivity"
             android:label="@string/title_activity_drawing" >
         </activity>
+        <activity
+            android:name="com.ubante.bullet.CountdownActivity"
+            android:label="@string/title_activity_countdown" >
+        </activity>
+        <activity
+            android:name="com.ubante.bullet.ScratchActivity"
+            android:label="@string/title_activity_scratch" >
+        </activity>
     </application>
 
 </manifest>
