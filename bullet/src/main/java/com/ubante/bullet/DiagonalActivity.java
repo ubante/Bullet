@@ -6,8 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
- public class DiagonalActivity extends Activity {
+ public class DiagonalActivity extends Activity implements DiagonalDrawingView.DiagonalReleaseListener {
     private DiagonalDrawingView diagonal;
     Point start,end;
     private TextView tvScoreString;
@@ -44,6 +45,8 @@ import android.widget.TextView;
         String score;
 
         diagonal = (DiagonalDrawingView) findViewById(R.id.diagonalDrawingView1);
+        diagonal.setOnReleaseListener(this);
+
         if (diagonal.getPath().isEmpty()) {
             score = "You should try drawing a line";
         } else {
@@ -68,4 +71,8 @@ import android.widget.TextView;
         tvScoreString.setText(score);
     }
 
-}
+     @Override
+     public void onRelease() {
+         Toast.makeText(this,"released",Toast.LENGTH_SHORT).show();
+     }
+ }

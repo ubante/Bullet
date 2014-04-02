@@ -21,6 +21,11 @@ public class DiagonalDrawingView extends View {
     private Path path = new Path();
     // stores the point of motion down and motion up
     Point startPoint,endPoint;
+    public interface DiagonalReleaseListener {
+        void onRelease();
+    }
+
+    private DiagonalReleaseListener onReleaseListener;
 
     public Path getPath() { return path; }
 
@@ -67,6 +72,7 @@ public class DiagonalDrawingView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 endPoint = new Point(pointX,pointY);
+                this.onReleaseListener.onRelease();
             default:
                 return false;
         }
@@ -81,5 +87,9 @@ public class DiagonalDrawingView extends View {
         slope = (endPoint.getY()-startPoint.getY()) / (endPoint.getX()-startPoint.getX());
 
         return slope * -1; // The y-axis is reversed
+    }
+
+    public void setOnReleaseListener(DiagonalReleaseListener onReleaseListener) {
+        this.onReleaseListener = onReleaseListener;
     }
 }
