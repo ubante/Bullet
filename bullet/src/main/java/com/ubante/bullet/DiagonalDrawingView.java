@@ -8,24 +8,25 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * I tried to extend SimpleDrawingView but it's easier to make a new class.
  */
 public class DiagonalDrawingView extends View {
     // setup initial color
-    private final int paintColor = Color.BLACK;
+    private int paintColor = Color.BLACK;
     // defines paint and canvas
     private Paint drawPaint;
     // stores next circle
     private Path path = new Path();
     // stores the point of motion down and motion up
     Point startPoint,endPoint;
+    private DiagonalReleaseListener onReleaseListener;
+
     public interface DiagonalReleaseListener {
         void onRelease();
     }
-
-    private DiagonalReleaseListener onReleaseListener;
 
     public Path getPath() { return path; }
 
@@ -56,6 +57,11 @@ public class DiagonalDrawingView extends View {
         canvas.drawPath(path, drawPaint);
     }
 
+    public void clearScreen() {
+        path.reset();
+        postInvalidate();
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float pointX = event.getX();
@@ -63,7 +69,6 @@ public class DiagonalDrawingView extends View {
         // Checks for the event that occurs
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                // XXX need to clear the screen here
                 path.moveTo(pointX, pointY);
                 startPoint = new Point(pointX,pointY);
                 return true;
@@ -72,7 +77,12 @@ public class DiagonalDrawingView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 endPoint = new Point(pointX,pointY);
-                this.onReleaseListener.onRelease();
+                if (onReleaseListener == null) {
+                    Toast.makeText(getContext(),"onReleaseListener is null",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    onReleaseListener.onRelease();
+                }
             default:
                 return false;
         }

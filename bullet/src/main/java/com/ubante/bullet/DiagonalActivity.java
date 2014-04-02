@@ -1,4 +1,4 @@
- package com.ubante.bullet;
+package com.ubante.bullet;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
- public class DiagonalActivity extends Activity implements DiagonalDrawingView.DiagonalReleaseListener {
+public class DiagonalActivity extends Activity implements DiagonalDrawingView.DiagonalReleaseListener {
     private DiagonalDrawingView diagonal;
     Point start,end;
     private TextView tvScoreString;
@@ -18,12 +18,14 @@ import android.widget.Toast;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagonal);
         tvScoreString = (TextView) findViewById(R.id.textView);
+        diagonal = (DiagonalDrawingView) findViewById(R.id.diagonalDrawingView1);
+        diagonal.setOnReleaseListener(this);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.diagonal, menu);
         return true;
@@ -41,27 +43,29 @@ import android.widget.Toast;
         return super.onOptionsItemSelected(item);
     }
 
-    public void onScoreMe(View v) {
+//    public void onScoreMe(View v) {
+    @Override
+    public void onRelease() {
         String score;
-
-        diagonal = (DiagonalDrawingView) findViewById(R.id.diagonalDrawingView1);
-        diagonal.setOnReleaseListener(this);
 
         if (diagonal.getPath().isEmpty()) {
             score = "You should try drawing a line";
         } else {
             start = diagonal.getStartPoint();
             end = diagonal.getEndPoint();
-            float slope = diagonal.getSlope();
-            score = String.format("Start: %s  End: %s  Slope: %-5.2f\n",
-                    start.toString(),end.toString(),slope);
+            Line line = new Line(start,end);
+            float slope = line.getSlope();
+            score = line.getStats();
+//            float slope = diagonal.getSlope();
+//            score = String.format("Start: %s  End: %s  Slope: %-5.2f\n",
+//                    start.toString(),end.toString(),slope);
             if ((slope == Float.POSITIVE_INFINITY) || (slope == Float.NEGATIVE_INFINITY)) {
                 score = score+"Congratulations - that was infinity";
             } else if (Math.abs(slope) > 300) {
                 score = score+"Getting real close";
             } else if (Math.abs(slope) > 100) {
                 score = score+"Getting close";
-            } else if (Math.abs(slope) < 1) {
+            } else if (Math.abs(slope) < 0.1) {
                 score = score+"That's a horizontal line";
             } else {
                 score = score+"Keep trying";
@@ -71,8 +75,15 @@ import android.widget.Toast;
         tvScoreString.setText(score);
     }
 
-     @Override
-     public void onRelease() {
-         Toast.makeText(this,"released",Toast.LENGTH_SHORT).show();
-     }
- }
+    public void onClearScreen(View v) {
+        diagonal.clearScreen();
+    }
+
+//    @Override
+    public void onRelease2() {
+        Toast.makeText(this,"released",Toast.LENGTH_SHORT).show();
+    }
+
+    // XXX needs a clear button
+
+}
