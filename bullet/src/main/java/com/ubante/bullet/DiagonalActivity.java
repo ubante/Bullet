@@ -25,7 +25,6 @@ public class DiagonalActivity extends Activity implements DiagonalDrawingView.Di
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.diagonal, menu);
         return true;
@@ -43,7 +42,6 @@ public class DiagonalActivity extends Activity implements DiagonalDrawingView.Di
         return super.onOptionsItemSelected(item);
     }
 
-//    public void onScoreMe(View v) {
     @Override
     public void onRelease() {
         String score;
@@ -56,9 +54,6 @@ public class DiagonalActivity extends Activity implements DiagonalDrawingView.Di
             Line line = new Line(start,end);
             float slope = line.getSlope();
             score = line.getStats();
-//            float slope = diagonal.getSlope();
-//            score = String.format("Start: %s  End: %s  Slope: %-5.2f\n",
-//                    start.toString(),end.toString(),slope);
             if ((slope == Float.POSITIVE_INFINITY) || (slope == Float.NEGATIVE_INFINITY)) {
                 score = score+"Congratulations - that was infinity";
             } else if (Math.abs(slope) > 300) {
@@ -78,12 +73,4 @@ public class DiagonalActivity extends Activity implements DiagonalDrawingView.Di
     public void onClearScreen(View v) {
         diagonal.clearScreen();
     }
-
-//    @Override
-    public void onRelease2() {
-        Toast.makeText(this,"released",Toast.LENGTH_SHORT).show();
-    }
-
-    // XXX needs a clear button
-
 }

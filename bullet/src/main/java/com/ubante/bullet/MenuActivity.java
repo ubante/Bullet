@@ -60,6 +60,12 @@ public class MenuActivity extends Activity {
         startActivity(countdownIntent);
     }
 
+    public void onShoot(View v) {
+        Toast.makeText(this,"Switching to Shoot",Toast.LENGTH_SHORT).show();
+        Intent shootIntent = new Intent(this, ShootActivity.class);
+        startActivity(shootIntent);
+    }
+
     public void onScratch(View v) {
         Toast.makeText(this,"Switching to Scratch",Toast.LENGTH_SHORT).show();
         Intent scratchIntent = new Intent(this, ScratchActivity.class);
