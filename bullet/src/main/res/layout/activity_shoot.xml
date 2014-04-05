@@ -12,8 +12,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_takephoto"
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:onClick="onTakePhoto"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivPreview"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_launchcamera"
+        android:id="@+id/button2"
+        android:onClick="onLaunchCamera"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
+        android:layout_marginBottom="28dp" />
 
 </RelativeLayout>

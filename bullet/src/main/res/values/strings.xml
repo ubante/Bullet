@@ -22,6 +22,6 @@
     <string name="btn_score">Score Me</string>
     <string name="btn_clearscreen">Clear Screen</string>
     <string name="btn_shoot">Shoot!</string>
-    <string name="title_activity_shoot">ShootActivity</string><string name="btn_takephoto">Take Photo</string>
+    <string name="title_activity_shoot">ShootActivity</string><string name="btn_takephoto">Take Photo</string><string name="btn_launchcamera">Launch Camera</string>
 
 </resources>
