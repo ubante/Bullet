@@ -2,21 +2,26 @@ package com.ubante.bullet;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ScratchActivity extends Activity {
+    private TextView tvCountdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scratch);
+        tvCountdown = (TextView) findViewById(R.id.textViewScratchCountdown);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.scratch, menu);
         return true;
@@ -32,6 +37,21 @@ public class ScratchActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onScratch(View v) {
+        Toast.makeText(this, "Scratching", Toast.LENGTH_SHORT).show();
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                tvCountdown.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                tvCountdown.setText("done!");
+            }
+        }.start();
+
     }
 
 }
