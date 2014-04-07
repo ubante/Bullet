@@ -35,6 +35,12 @@ public class MenuActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onJoin(View v) {
+        Toast.makeText(this,"Switching to Join",Toast.LENGTH_SHORT).show();
+        Intent joinIntent = new Intent(this, JoinActivity.class);
+        startActivity(joinIntent);
+    }
+
     public void onDiagonal(View v) {
         Toast.makeText(this,"Switching to Diagonal",Toast.LENGTH_SHORT).show();
         Intent diagonalIntent = new Intent(this, DiagonalActivity.class);
