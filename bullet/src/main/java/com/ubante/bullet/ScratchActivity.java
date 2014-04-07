@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class ScratchActivity extends Activity {
     private TextView tvCountdown;
 
@@ -17,6 +20,11 @@ public class ScratchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scratch);
         tvCountdown = (TextView) findViewById(R.id.textViewScratchCountdown);
+        Parse.initialize(this, "49xRaGT7dNiwuCp5EEZjf9KRFoVtJ12aygBRNcEg", "zse7ogRQqfKEzNgqVNWzv9MIHKGe5a2xbAZhaK9v");
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
+        Toast.makeText(this,"Parse test object saved maybe",Toast.LENGTH_SHORT).show();
     }
 
 
