@@ -24,6 +24,8 @@ public class ShooterList {
         shooters.remove(s);
     }
 
+    public void clear() { shooters.clear(); }
+
     List<Shooter> getShooters() { return shooters; }
 
     public StringBuffer getShooterStringList() {

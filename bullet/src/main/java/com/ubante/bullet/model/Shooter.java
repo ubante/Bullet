@@ -17,6 +17,10 @@ public class Shooter {
 
     Shooter() {}
 
+    public String getHumanName() { return humanName; }
+
+    public void setHumanName(String newName) { humanName = newName; }
+
     void setDevice(Device d) { this.device = d; }
 
     public void shoot() {

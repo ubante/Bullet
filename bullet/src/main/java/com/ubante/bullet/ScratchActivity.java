@@ -3,6 +3,8 @@ package com.ubante.bullet;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +21,7 @@ public class ScratchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scratch);
-        tvCountdown = (TextView) findViewById(R.id.textViewScratchCountdown);
+//        tvCountdown = (TextView) findViewById(R.id.textViewScratchCountdown);
         Parse.initialize(this, "49xRaGT7dNiwuCp5EEZjf9KRFoVtJ12aygBRNcEg", "zse7ogRQqfKEzNgqVNWzv9MIHKGe5a2xbAZhaK9v");
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
@@ -62,4 +64,19 @@ public class ScratchActivity extends Activity {
 
     }
 
+//    {
+//        TextWatcher inputTextWatcher = new TextWatcher() {
+//            public void afterTextChanged(Editable s) {
+//                TextView.setText(s.toString());
+//            }
+//        }
+//
+//    public void beforeTextChanged(CharSequence s, int start, int count, int after){
+//    }
+//    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//    }
+//};
+//
+//editText.addTextChangedListener(inputTextWatcher);
+//    }
 }
