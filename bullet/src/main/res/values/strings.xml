@@ -30,6 +30,8 @@
     <string name="title_activity_join">JoinActivity</string>
     <string name="tv_currentmembers">Current members:</string>
     <string name="tv_currentmemberlist">The squad is currently empty.</string>
-    <string name="tv_entername">Enter your display name</string><string name="tv_displayname">Your screenname is \"Member#1\"</string>
+    <string name="tv_entername">Enter your display name</string>
+    <string name="tv_displayname">Your screenname is \"Member#1\"</string>
+    <string name="title_activity_leader">LeaderActivity</string><string name="btn_leader">Leader</string><string name="tv_leaderwelcomemessage">You are the leader</string>
 
 </resources>

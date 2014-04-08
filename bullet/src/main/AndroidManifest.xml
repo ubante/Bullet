@@ -44,6 +44,10 @@
             android:name="com.ubante.bullet.JoinActivity"
             android:label="@string/title_activity_join" >
         </activity>
+        <activity
+            android:name="com.ubante.bullet.LeaderActivity"
+            android:label="@string/title_activity_leader" >
+        </activity>
     </application>
 
     <uses-feature

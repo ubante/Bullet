@@ -3,6 +3,7 @@ package com.ubante.bullet;
 import android.app.Activity;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,14 +12,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.ubante.bullet.model.Shooter;
+import com.ubante.bullet.model.ShooterList;
+
+import java.util.List;
 
 public class JoinActivity extends Activity {
     private EditText etName;
     private Button btnJoin;
     private TextView tvSquad;
+    ShooterList shooterList = new ShooterList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +39,6 @@ public class JoinActivity extends Activity {
         // See who is logged in
         Parse.initialize(this, "49xRaGT7dNiwuCp5EEZjf9KRFoVtJ12aygBRNcEg", "zse7ogRQqfKEzNgqVNWzv9MIHKGe5a2xbAZhaK9v");
         updateSquadList();
-//        ParseObject testObject = new ParseObject("TestObject");
-
     }
 
 
@@ -57,12 +63,35 @@ public class JoinActivity extends Activity {
     }
 
     public void updateSquadList() {
+        String emptyMessage = "There are no active members in the squad.";
+
         // Get active members from Parse table
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ActiveMemberList");
+        query.whereExists("screenName");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> memberList, ParseException e) {
+                // Log errors
+                if (e != null) {
+                    Log.d("screenName", "Error: " + e.getMessage());
+                    return;
+                }
 
-        // If there are members, list them
+                // Log and toast success
+                Log.d("screenName", "Retrieved " + memberList.size() + " scores");
+                Toast.makeText(JoinActivity.this,"found "+memberList.size()+ " shooters",Toast.LENGTH_SHORT).show();
 
-        // Else give a default message
+                // Populate shooterList from the active users found in Parse
+                for (ParseObject member : memberList) {
+                    Shooter shooter = new Shooter(member.getString("screenName"));
+                    shooter.joinShooterList(shooterList);
+                }
+
+                // Update the list on the screen
+                tvSquad.setText(shooterList.getShooterStringList());
+
+            }
+        });
+
     }
 
     public void onJoin(View v) {

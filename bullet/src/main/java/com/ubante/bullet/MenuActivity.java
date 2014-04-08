@@ -14,6 +14,8 @@ public class MenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        // XXX
     }
 
     @Override
@@ -33,6 +35,12 @@ public class MenuActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onLead(View v) {
+        Toast.makeText(this,"Switching to Leader",Toast.LENGTH_SHORT).show();
+        Intent leadIntent = new Intent(this, LeaderActivity.class);
+        startActivity(leadIntent);
     }
 
     public void onJoin(View v) {
